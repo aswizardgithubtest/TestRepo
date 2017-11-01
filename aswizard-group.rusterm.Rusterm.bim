@@ -1,0 +1,733 @@
+{
+  "name": "Rusterm",
+  "description": "Imported database from sql server 'analytics-db-server.database.windows.net' and database 'analytics_db'",
+  "compatibilityLevel": 1400,
+  "model": {
+    "name": "Rusterm",
+    "description": "A Tabular data model at the 1200 compatibility level commit.",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer analytics-db-server.database.windows.net analytics_db",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionString": "Provider=SQLNCLI11;Server=tcp:analytics-db-server.database.windows.net;Initial Catalog=analytics_db;Persist Security Info=False;User ID=analytics_admin;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30",
+        "impersonationMode": "impersonateServiceAccount"
+      }
+    ],
+    "tables": [
+      {
+        "name": "SalesLT.Customer",
+        "description": "All data from SalesLT.Customer",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID",
+            "displayFolder": "Another Folder"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "NameStyle",
+            "displayOrdinal": 1,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "FirstName",
+            "displayOrdinal": 3,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MiddleName",
+            "displayOrdinal": 4,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "LastName",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "description": "sads",
+            "sourceColumn": "Suffix",
+            "formatString": "a",
+            "displayOrdinal": 6,
+            "displayFolder": "MyFolder",
+            "dataCategory": "Continent"
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "SalesPerson",
+            "dataType": "string",
+            "sourceColumn": "SalesPerson",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "PasswordHash",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordHash",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "PasswordSalt",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordSalt",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 14
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Customer",
+            "source": {
+              "query": "SELECT [CustomerID],[NameStyle],[Title],[FirstName],[MiddleName],[LastName],[Suffix],[CompanyName],[SalesPerson],[EmailAddress],[Phone],[PasswordHash],[PasswordSalt],[rowguid],[ModifiedDate] FROM SalesLT.Customer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170812",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/12/2017' AND [ModifiedDate] < '08/13/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170813",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/13/2017' AND [ModifiedDate] < '08/14/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170814",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/14/2017' AND [ModifiedDate] < '08/15/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170815",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/15/2017' AND [ModifiedDate] < '08/16/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170816",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/16/2017' AND [ModifiedDate] < '08/17/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170817",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/17/2017' AND [ModifiedDate] < '08/18/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170818",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/18/2017' AND [ModifiedDate] < '08/19/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170819",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/19/2017' AND [ModifiedDate] < '08/20/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170820",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/20/2017' AND [ModifiedDate] < '08/21/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170821",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/21/2017' AND [ModifiedDate] < '08/22/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170822",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/22/2017' AND [ModifiedDate] < '08/23/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170824",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/24/2017' AND [ModifiedDate] < '08/25/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170825",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/25/2017' AND [ModifiedDate] < '08/26/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170826",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/26/2017' AND [ModifiedDate] < '08/27/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          },
+          {
+            "name": "20170827",
+            "source": {
+              "query": [
+                "SELECT [CustomerID],",
+                "             [NameStyle],",
+                "             [Title],",
+                "             [FirstName],",
+                "             [MiddleName],",
+                "             [LastName],",
+                "             [Suffix],",
+                "             [CompanyName],",
+                "             [SalesPerson],",
+                "             [EmailAddress],",
+                "             [Phone],",
+                "             [PasswordHash],",
+                "             [PasswordSalt],",
+                "             [rowguid],",
+                "             [ModifiedDate]",
+                "FROM SalesLT.Customer",
+                "WHERE [ModifiedDate] >= '08/27/2017' AND [ModifiedDate] < '08/28/2017'"
+              ],
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.Product",
+        "description": "All data from SalesLT.Product",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "ProductNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ProductNumber",
+            "displayOrdinal": 2,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "displayOrdinal": 3,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "Standard Cost",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "StandardCost",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "Size 2",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Size",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Weight",
+            "dataType": "decimal",
+            "sourceColumn": "Weight",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ProductCategoryIDNew",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryID",
+            "displayOrdinal": 8,
+            "displayFolder": "MyFolder"
+          },
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "sourceColumn": "ProductModelID",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "SellStartDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "SellStartDate",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "SellEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SellEndDate",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "DiscontinuedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DiscontinuedDate",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ThumbNailPhoto",
+            "dataType": "binary",
+            "sourceColumn": "ThumbNailPhoto",
+            "displayOrdinal": 13
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Product",
+            "source": {
+              "query": "SELECT [ProductID],[Name],[ProductNumber],[Color],[StandardCost],[ListPrice],[Size],[Weight],[ProductCategoryID],[ProductModelID],[SellStartDate],[SellEndDate],[DiscontinuedDate],[ThumbNailPhoto],[ThumbnailPhotoFileName],[rowguid],[ModifiedDate] FROM SalesLT.Product",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "mesSize1",
+            "expression": "COUNT('SalesLT.Product'[Name])",
+            "isHidden": true
+          },
+          {
+            "name": "mesWeight",
+            "expression": "SUM('SalesLT.Product'[Weight])"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Category",
+            "levels": [
+              {
+                "name": "ProductCategoryID",
+                "ordinal": 0,
+                "column": "ProductCategoryIDNew"
+              },
+              {
+                "name": "ProductID",
+                "ordinal": 1,
+                "column": "ProductID"
+              },
+              {
+                "name": "ProductNumber",
+                "ordinal": 2,
+                "column": "ProductNumber"
+              }
+            ]
+          },
+          {
+            "name": "Category2",
+            "levels": [
+              {
+                "name": "ProductModelID",
+                "ordinal": 0,
+                "column": "ProductModelID"
+              },
+              {
+                "name": "ProductCategoryID123",
+                "ordinal": 1,
+                "column": "ProductCategoryIDNew"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductModelProductDescription",
+        "description": "All data from SalesLT.ProductModelProductDescription",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "description": "1",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID",
+            "displayFolder": "1"
+          },
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "description": "1",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID",
+            "displayOrdinal": 1,
+            "displayFolder": "1"
+          },
+          {
+            "name": "Culture",
+            "dataType": "string",
+            "description": "1",
+            "isNullable": false,
+            "sourceColumn": "Culture",
+            "displayOrdinal": 2,
+            "displayFolder": "1"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductModelProductDescription",
+            "source": {
+              "query": "SELECT [ProductModelID],[ProductDescriptionID],[Culture],[rowguid],[ModifiedDate] FROM SalesLT.ProductModelProductDescription",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "ASTE",
+            "expression": "SUM('SalesLT.ProductModelProductDescription'[ProductModelID])"
+          },
+          {
+            "name": "sa",
+            "expression": "SUM('SalesLT.ProductModelProductDescription'[ProductModelID])"
+          },
+          {
+            "name": "test",
+            "expression": "SUM('SalesLT.ProductModelProductDescription'[ProductModelID])"
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductAggregateTable",
+        "description": "All aggregated data from SalesLT.Product",
+        "partitions": [
+          {
+            "name": "SalesLT.ProductAggregateTable",
+            "source": {
+              "type": "calculated",
+              "expression": "SUMMARIZE(SalesLT.Product, SellStartDate[CalendarYear], \"ProductID\", SUM(SalesLT.Product[ProductID]))"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
